@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarot Card Reader</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #2b1055, #7597de);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 15px;
+      width: 320px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #f4c430;
+      color: black;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #ffd966;
+    }
+
+    .card {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid white;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🔮 Tarot Reader</h1>
+    <p>Click the button to draw a card</p>
+
+    <button onclick="drawCard()">Draw a Card</button>
+
+    <div id="card" class="card">
+      <h2 id="cardName"></h2>
+      <p id="cardMeaning"></p>
+    </div>
+  </div>
+
+  <script>
+    const tarotCards = [
+      { name: "The Fool", meaning: "New beginnings, adventure, and curiosity." },
+      { name: "The Magician", meaning: "Confidence, creativity, and power." },
+      { name: "The High Priestess", meaning: "Intuition and inner wisdom." },
+      { name: "The Empress", meaning: "Growth, care, and abundance." },
+      { name: "The Emperor", meaning: "Structure, stability, and leadership." },
+      { name: "The Lovers", meaning: "Relationships and meaningful choices." },
+      { name: "The Star", meaning: "Hope, healing, and renewal." }
+    ];
+
+    function drawCard() {
+      const randomIndex = Math.floor(Math.random() * tarotCards.length);
+      const card = tarotCards[randomIndex];
+
+      document.getElementById("cardName").textContent = card.name;
+      document.getElementById("cardMeaning").textContent = card.meaning;
+      document.getElementById("card").style.display = "block";
+    }
+  </script>
+</body>
+</html>
+
